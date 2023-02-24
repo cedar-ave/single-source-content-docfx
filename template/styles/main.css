@@ -1,0 +1,89 @@
+/* Conditional message bar */
+
+#tag {
+    font-size: 13.5px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: -16px !important;
+    margin-left: -50px;
+    margin-bottom: 10px !important;
+    margin-right: 15px;
+    text-indent: 4em;
+    background: #D6F3FF;
+}
+
+#dosVersion {
+    padding-left: 12px;
+    font-weight: 400;
+}
+
+#success-checkmark {
+    background: #00aeff;
+    color: white;
+    padding: 1px 4px;
+    border-radius: 50%;
+    padding-right: 1px;
+    margin-right: 8px
+}
+
+#version-bump {
+    padding-right: 15px;
+}
+
+
+/* Status bar */
+
+.statusMessage {
+    background-color: #aae2c8;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-right: 15px;
+    margin-top: -16px;
+    margin-right: 16px;
+    margin-left: -40px;
+    margin-bottom: 10px;
+    padding-left: 5em;
+    text-indent: -5em;
+}
+
+#statusIcon {
+    font-size: 24px;
+    margin-left: 100px;
+    transform: translate(0, 5px);
+    margin-right: -36px;
+}
+
+/* Tags */
+
+.tag {
+    border: 10px;
+    color: purple;
+}
+
+/* Paragraph bar */
+
+.message {
+    font-size: 13.5px;
+    font-weight: 600;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 16px;
+    margin-left: 0px;
+    margin-bottom: 27px;
+    margin-right: 3px;
+    text-indent: 2em;
+    background: #D6F3FF;
+}
+
+.message>.fa:before {
+    margin-left: -52px;
+    padding-right: 10px;
+    color: #00aeff;
+}

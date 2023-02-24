@@ -1,0 +1,10 @@
+{
+    "anyTerm": {
+        "message": "Any paragraph heading message",
+        "icon": "fa-cloud"
+    },
+    "anotherTerm": {
+        "message": "Another paragraph heading message",
+        "icon": "fa-database"
+    }
+}

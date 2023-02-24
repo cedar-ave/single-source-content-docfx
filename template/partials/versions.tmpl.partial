@@ -1,0 +1,7 @@
+<div id="tag">
+  Applies to:
+  <span id="versions">
+  {{#if versions.versionA}}{{>partials/versionA}}{{/if}}
+  {{#if versions.versionB}}{{>partials/versionB}}{{/if}}
+  </span>
+</div>
