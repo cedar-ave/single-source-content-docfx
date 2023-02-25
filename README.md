@@ -40,8 +40,6 @@
     - [Add the JavaScript code](#add-the-javascript-code-1)
     - [Add the content mappings file](#add-the-content-mappings-file-1)
 
-
-
 ## Add a message bar to the top of an entire site
 
 this feature puts a banner on the top of all pages in a site section.
@@ -85,13 +83,13 @@ Notes:
 Add references to `banner` in `<your-template>/layout/_master.tmpl`:
 
 ```html
-    <div id="wrapper">
-      <header>
-        {{^_disableBanner}}
-        {{>partials/Banner}}
-        {{/_disableBanner}}
-      </header>
-      <div id="invisible-push-down"></div>
+<div id="wrapper">
+  <header>
+    {{^_disableBanner}}
+      {{>partials/Banner}}
+    {{/_disableBanner}}
+  </header>
+<div id="invisible-push-down"></div>
 ```
 
 Without added padding, the banner overlaps the elements beneath it. `#invisible-push-down` pushes down the elements in the articles side of the page.
@@ -132,7 +130,7 @@ Add a reference to the custom partial in `<your-template>/layout/_master.tmpl`:
 
 ```handlebars
 {{#if versions}}
-{{>partials/versions}}
+  {{>partials/versions}}
 {{/if}}
 ```
 
@@ -170,11 +168,11 @@ Add `template/partials/statusMessage.tmpl.partial` in your template. Replace the
 Add a reference to the custom partial in `<your-template>/layout/_master.tmpl`. Add the following after `{{/_disableToc}}`:
 
 ```handlebars
-  {{#if statusMessage}}
+{{#if statusMessage}}
   {{^_disableStatusMessage}}
-  {{>partials/statusMessage}}
+    {{>partials/statusMessage}}
   {{/_disableStatusMessage}}
-  {{/if}}
+{{/if}}
 ```
 
 The `if` prevents the message from showing on all pages. It only shows on pages with `statusMessage` in the YAML header.
@@ -207,9 +205,9 @@ Add a reference to the custom partial in `<your-template>/layout/_master.tmpl`:
 
 ```handlebars
 {{#if tag}}
-{{^_disableTag}}
-{{>partials/tag}}
-{{/_disableTag}}
+  {{^_disableTag}}
+    {{>partials/tag}}
+  {{/_disableTag}}
 {{/if}}
 ```
 
@@ -243,10 +241,10 @@ Step 1...
 
 ```json
 {
-    "version-1.2.3": {
-        "message": "This section applies only to version 1.2.3.",
-        "icon": "fa-cloud"
-    }
+  "version-1.2.3": {
+    "message": "This section applies only to version 1.2.3.",
+    "icon": "fa-cloud"
+  }
 }
 ```
 
@@ -290,14 +288,14 @@ Add and customize `sourcedContent/messages.json`:
 
 ```json
 {
-    "anyTerm": {
-        "message": "Any paragraph heading message",
-        "icon": "fa-cloud"
-    },
-    "anotherTerm": {
-        "message": "Another paragraph heading message",
-        "icon": "fa-database"
-    }
+  "anyTerm": {
+    "message": "Any paragraph heading message",
+    "icon": "fa-cloud"
+  },
+  "anotherTerm": {
+    "message": "Another paragraph heading message",
+    "icon": "fa-database"
+  }
 }
 ```
 
@@ -317,7 +315,7 @@ This is a document for the {{ product }} Suite.
 
 ```json
 {
-    "product": "Product A"
+  "product": "Product A"
 }
 ```
 
@@ -343,14 +341,13 @@ Add `main.js` in the `template/<your-template>/styles` directory.
 
 Paste in the `Single source plain-text terms` code in this repo's `main.js` .
 
-
 #### Add the content mappings file
 
 Add and customize `sourcedContent/terms.json`:
 
 ```json
 {
-    "example term 1": "Example Term 1",
-    "example term 2": "Example Term 2"
+  "example term 1": "Example Term 1",
+  "example term 2": "Example Term 2"
 }
 ```

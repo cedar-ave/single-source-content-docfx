@@ -1,10 +1,10 @@
 {
-    "anyTerm": {
-        "message": "Any paragraph heading message",
-        "icon": "fa-cloud"
-    },
-    "anotherTerm": {
-        "message": "Another paragraph heading message",
-        "icon": "fa-database"
-    }
+  "anyTerm": {
+    "message": "Any paragraph heading message",
+    "icon": "fa-cloud"
+  },
+  "anotherTerm": {
+    "message": "Another paragraph heading message",
+    "icon": "fa-database"
+  }
 }
