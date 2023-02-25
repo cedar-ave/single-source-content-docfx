@@ -1,35 +1,41 @@
 # Single-sourced content management for DocFx projects
 
 - [Add a message bar to the top of an entire site](#add-a-message-bar-to-the-top-of-an-entire-site)
-- [Add a conditional message bar to the top of selected pages](#add-a-conditional-message-bar-to-the-top-of-selected-pages)
   - [Setup](#setup)
-    - [Add new partials](#add-new-partials)
-    - [Update the master template](#update-the-master-template)
-    - [Update the CSS](#update-the-css)
-- [Add a status bar to the top of selected pages](#add-a-status-bar-to-the-top-of-selected-pages)
-  - [Setup](#setup-1)
+    - [Specify the text](#specify-the-text)
     - [Add a new partial](#add-a-new-partial)
+  - [Modify the TOC partial](#modify-the-toc-partial)
+    - [Update the CSS](#update-the-css)
+    - [Update the master template](#update-the-master-template)
+- [Add a conditional message bar to the top of selected pages](#add-a-conditional-message-bar-to-the-top-of-selected-pages)
+  - [Setup](#setup-1)
+    - [Add new partials](#add-new-partials)
     - [Update the master template](#update-the-master-template-1)
     - [Update the CSS](#update-the-css-1)
-- [Add a bar with tags to the top of selected pages](#add-a-bar-with-tags-to-the-top-of-selected-pages)
+- [Add a status bar to the top of selected pages](#add-a-status-bar-to-the-top-of-selected-pages)
   - [Setup](#setup-2)
     - [Add a new partial](#add-a-new-partial-1)
     - [Update the master template](#update-the-master-template-2)
     - [Update the CSS](#update-the-css-2)
+- [Add a bar with tags to the top of selected pages](#add-a-bar-with-tags-to-the-top-of-selected-pages)
+  - [Setup](#setup-3)
+    - [Add a new partial](#add-a-new-partial-2)
+    - [Update the master template](#update-the-master-template-3)
+    - [Update the CSS](#update-the-css-3)
 - [Add a bar above selected paragraphs](#add-a-bar-above-selected-paragraphs)
   - [Markdown file](#markdown-file)
   - [`sourcedContent/messages.json`](#sourcedcontentmessagesjson)
   - [Output](#output)
-  - [Setup](#setup-3)
+  - [Setup](#setup-4)
     - [Include JSON files with content mappings in the build configuration](#include-json-files-with-content-mappings-in-the-build-configuration)
     - [Add the JavaScript code](#add-the-javascript-code)
-    - [Update the CSS](#update-the-css-3)
+    - [Update the CSS](#update-the-css-4)
     - [Add the content mappings file](#add-the-content-mappings-file)
 - [Single source plain-text terms](#single-source-plain-text-terms)
   - [Markdown file](#markdown-file-1)
   - [`sourcedContent/terms.json`](#sourcedcontenttermsjson)
   - [Output](#output-1)
-  - [Setup](#setup-4)
+  - [Setup](#setup-5)
     - [Include JSON files with content mappings in the build configuration](#include-json-files-with-content-mappings-in-the-build-configuration-1)
     - [Add the JavaScript code](#add-the-javascript-code-1)
     - [Add the content mappings file](#add-the-content-mappings-file-1)
@@ -38,7 +44,57 @@
 
 ## Add a message bar to the top of an entire site
 
+this feature puts a banner on the top of all pages in a site section.
 
+### Setup
+
+#### Specify the text
+
+The text in the banner is a custom attribute that points to `docfx.json`. Add `_banner` under `globalMetadata` and input your message.
+
+```json
+{
+  "globalMetadata": {
+    "_banner": "This page is in development. This information may not match what's in the next release."
+  }
+}
+```
+
+#### Add a new partial
+
+Add `template/partials/banner.tmpl.partial` in your template.
+
+### Modify the TOC partial
+
+Add `template/toc.html.tmpl` at the root of your template, not in the `partials` directory. `toc.html.tmpl` is a different kind of template file than what's in the `partials` directory.
+
+Your `toc.html.tmpl` file may not be the same as the example in this repo. See the `<div class="sidetoc" id="bannerToc">` line for an example of what to add and modify.
+
+#### Update the CSS
+
+Add the `Site banner` code in `template/styles/main.css` to `<your-template>/styles/main.css`.
+
+Notes:
+
+- `#banner` styles the banner.
+- `#banner p` styles the text in the banner.
+- `#bannerToc` pushes down the table of contents. `id="bannerToc"` is added two times in `toc.htmp.tmpl`.
+
+#### Update the master template
+
+Add references to `banner` in `<your-template>/layout/_master.tmpl`:
+
+```html
+    <div id="wrapper">
+      <header>
+        {{^_disableBanner}}
+        {{>partials/Banner}}
+        {{/_disableBanner}}
+      </header>
+      <div id="invisible-push-down"></div>
+```
+
+Without added padding, the banner overlaps the elements beneath it. `#invisible-push-down` pushes down the elements in the articles side of the page.
 
 ## Add a conditional message bar to the top of selected pages
 
@@ -91,7 +147,7 @@ Add the `Conditional message bar` code in `template/styles/main.css` to `<your-t
 
 These steps add a customizable message at the top of a selected page in a yellow block. In this example, the message says functionality documented on the page is not released yet.
 
-![](images/pending-functionality.png)
+![](images/status-bar.png)
 
 In any article, add a `statusMessage` to the YAML heading:
 

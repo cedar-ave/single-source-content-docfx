@@ -1,0 +1,5 @@
+<div class="docs-subnav" id="banner">
+  <div class="docs-container">
+    <p>{{_banner}}</p>
+  </div>
+</div>
