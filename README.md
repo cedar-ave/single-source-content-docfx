@@ -1,6 +1,6 @@
 # Single-sourced content management for DocFx projects
 
-- [Add a message bar to the top of an entire site](#add-a-message-bar-to-the-top-of-an-entire-site)
+- [Add a banner to the top of an entire site](#add-a-banner-to-the-top-of-an-entire-site)
   - [Setup](#setup)
     - [Specify the text](#specify-the-text)
     - [Add a new partial](#add-a-new-partial)
@@ -40,9 +40,9 @@
     - [Add the JavaScript code](#add-the-javascript-code-1)
     - [Add the content mappings file](#add-the-content-mappings-file-1)
 
-## Add a message bar to the top of an entire site
+## Add a banner to the top of an entire site
 
-this feature puts a banner on the top of all pages in a site section.
+![banner](images/banner.png)
 
 ### Setup
 
